@@ -10,7 +10,7 @@ CREATE TABLE student (
   phone INT(30),
   gender varchar(10),
   b_date date,
-  password NVARCHAR(30),
+  contrasena NVARCHAR(30),
   PRIMARY KEY (id_boleta)
   );
 
@@ -18,6 +18,7 @@ CREATE TABLE subject (
   id_subject INT(5) NOT NULL,
   tipo INT,
   nombre VARCHAR(45),
+  estado VARCHAR(12),
   PRIMARY KEY (id_subject)
   );
   
