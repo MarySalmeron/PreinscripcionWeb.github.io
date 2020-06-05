@@ -2,7 +2,7 @@
     session_start();
     if(isset($_SESSION["id_boleta"])){
       include("../../logic_php/student_info.php");
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -67,6 +67,12 @@
         <a class="nav-link" href="./../../pages/alumno/editarAlumno.php">
           <i class="fas fa-user-edit"></i>
           <span>Modificar información</span></a>
+      </li>
+      <li class="nav-item">
+                <a class="nav-link" href="./../../pages/alumno/contraEdit.php">
+                    <i class="fas fa-book"></i>
+                    <span>Cambiar contraseña</span>
+                </a>
       </li>
 
       <li class="nav-item">
@@ -170,3 +176,9 @@
 </body>
 
 </html>
+<?php
+    }else{
+        //NO se detectó la sesion que hubo de generarse después de pasar por el login, entonces es un intento de acceso no autorizado, lo redireccionamos a la pantalla correspondiente
+        header("location:./../../index.php");
+    }
+?>

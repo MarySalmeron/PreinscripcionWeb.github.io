@@ -3,7 +3,7 @@
     if(isset($_SESSION["id_boleta"])){
       include("../../logic_php/student_info.php");
       include("../../logic_php/subject_info.php");
-    }
+    
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +20,7 @@
 
   <!-- Custom styles for this template-->
   <link href="../../css/sb-admin-2.min.css" rel="stylesheet">
+
 <style>
 table {
   width: 100%;
@@ -68,12 +69,58 @@ while($row = mysqli_fetch_array($result)) {
         </form>
     </td>";
     echo "<td>
-        <a href=''><i class='far fa-plus-square fa-2x'></i></a>
+        <a href=''><i type='submit' class='far fa-plus-square fa-2x'></i></a>
     </td>";
     echo "</tr>";
 }
 echo "</table>";
 mysqli_close($con);
 ?>
+<h1 class="h3 mb-2 text-gray-800">&nbsp;</h1>
+<h1 class="h3 mb-2 text-gray-800">Materias agregadas</h1>
+<?
+/*$sql="SELECT nombre FROM subject WHERE id_subject IN(SELECT  ;
+$result = mysqli_query($con,$sql);
+?>
+<!--mysqli_select_db($con,"preinscripcion");
+$sql="SELECT * FROM subject WHERE tipo = '".$q."'";
+$result = mysqli_query($con,$sql);
+
+echo "<table>
+<tr>
+<th>Nombre</th>
+<th>Nivel</th>
+<th>Estado</th>
+<th>Agregar</th>
+</tr>";
+while($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['nombre'] . "</td>";
+    echo "<td>" . $row['tipo'] . "</td>";
+    echo "<td>
+        <form method = 'post' action = 'ejemplo.php'>
+            <div>
+                <input type = 'radio' name = 'preg1' value = 'foo' >Ordinario</input>
+                <input type = 'radio' name = 'preg1' value = 'bar' >Recurse</input>
+            </div>
+        </form>
+    </td>";
+    echo "<td>
+        <a href=''><i class='far fa-plus-square fa-2x'></i></a>
+    </td>";
+    echo "</tr>";
+}
+echo "</table>";
+mysqli_close($con);*/
+?>-->
+
+
+
 </body>
 </html>
+<?php
+    }else{
+        //NO se detectó la sesion que hubo de generarse después de pasar por el login, entonces es un intento de acceso no autorizado, lo redireccionamos a la pantalla correspondiente
+        header("location:./../../index.php");
+    }
+?>

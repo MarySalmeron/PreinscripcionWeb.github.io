@@ -1,6 +1,6 @@
 $(document).ready(function(){
     $('select').formSelect();
-    
+ 
     var rango = [1993,2020];
     $('.datepicker').datepicker({
         format:"yyyy-mm-dd",
@@ -16,7 +16,7 @@ $(document).ready(function(){
             weekdaysAbbrev:["D","L","M","M","J","V","S"]
         }
     });
-/*Primero pasa por este js y luego se va al php que se llama registro_AX, Ok dejame lo veo */
+
     $("#formRegistro").validetta({
         echo:"pase formRegistro",
         bubblePosition: "bottom",
@@ -53,4 +53,5 @@ $(document).ready(function(){
             });
         }
     });
+   
 });

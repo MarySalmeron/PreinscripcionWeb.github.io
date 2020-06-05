@@ -3,7 +3,7 @@
     if(isset($_SESSION["id_boleta"])){
       //include("./alumno_BD.php");
       include("../../logic_php/student_info.php");
-    }
+    
 ?>
 
       <!DOCTYPE html>
@@ -25,7 +25,7 @@
 
   <!-- Custom styles for this template-->
   <link href="./../../css/sb-admin-2.min.css" rel="stylesheet">
-  <script src="./../../js/alumno.js"></script>
+  <!--<script src="./../../js/alumno.js"></script>-->
 </head>
 
 <body id="page-top">
@@ -68,6 +68,12 @@
         <a class="nav-link" href="./../../pages/alumno/editarAlumno.php">
           <i class="fas fa-user-edit"></i>
           <span>Modificar información</span></a>
+      </li>
+      <li class="nav-item">
+                <a class="nav-link" href="./../../pages/alumno/contraEdit.php">
+                    <i class="fas fa-book"></i>
+                    <span>Cambiar contraseña</span>
+                </a>
       </li>
 
       <li class="nav-item">
@@ -174,26 +180,29 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
+
   <!-- Bootstrap core JavaScript-->
-  <!--<script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>-->
+  <script src="./../../vendor/jquery/jquery.min.js"></script>
+  <script src="./../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
- <!-- <script src="vendor/jquery-easing/jquery.easing.min.js"></script>-->
+  <script src="./../../vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
- <!-- <script src="js/sb-admin-2.min.js"></script>-->
+  <script src="./../../js/sb-admin-2.min.js"></script>
 
   <!-- Page level plugins -->
- <!-- <script src="vendor/chart.js/Chart.min.js"></script>-->
+  <script src="./../../vendor/chart.js/Chart.min.js"></script>
 
-  <!-- Page level custom scripts -->
- <!-- <script src="js/demo/chart-area-demo.js"></script>
-  <script src="js/demo/chart-pie-demo.js"></script>-->
 
 
 
 </body>
 </html>
-
+<?php
+    }else{
+        //NO se detectó la sesion que hubo de generarse después de pasar por el login, entonces es un intento de acceso no autorizado, lo redireccionamos a la pantalla correspondiente
+        header("location:./../../index.php");
+    }
+?>
 

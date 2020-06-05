@@ -90,22 +90,7 @@
                     </select>
                     <label for="genero">G&eacute;nero</label>
                 </div>
-                   <!-- <nav class="navbar navbar-expand navbar-light bg-light mb-3">
-                      <a class="navbar-brand" href="#">Género</a>
-                      <ul class="navbar-nav ml-auto">
-                        <li class="nav-item dropdown">
-                            <form>
-                              <select name="gender" required="gender">
-                                  <option value="">--Seleccione--</option>
-                                  <option value="1">Femenino</option>
-                                  <option value="2">Masculino</option>
-                                  <option value="3">Otro</option>
-                              </select>
-                            </form>
-                            
-                        </li>
-                      </ul>
-                    </nav>-->
+                 
                   </div>
                   <div class="col-sm-6">
                   <label for="b_date">Fecha de nacimiento</label>

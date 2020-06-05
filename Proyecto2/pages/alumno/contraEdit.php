@@ -101,87 +101,31 @@
                 </a>
             </li>
         </ul>
-    
-        <div id="editar" class="col s12">
+        <div id="contrasena" class="col s18">
             <h1 class="h3 mb-2 text-gray-800">&nbsp;</h1>
-            <h1 class="h3 mb-2 text-gray-800">Configuración de la cuenta</h1>
-            
+            <h1 class="h3 mb-2 text-gray-800">Cambiar contraseña</h1>
             <div class="row">
-                <form id="formEditAlumno" autocomplete="off">
+                <form id="formCambiarContrasena">
                     <div class="col s12 m4 input-field">
-                        <label for="boleta">Boleta</label>
-                        <input type="text" id="id_boleta" name="id_boleta" maxLength="10" value="<?php echo $infInfBoleta[0];  ?>" readonly required name="boleta">
+                        <label for="contrasenaAct">Contrase&ntilde;a actual</label>
+                        <input type="password" id="contrasenaAct" name="contrasenaAct" data-validetta="required,minLength[5]">
                     </div>
                     <div class="col s12 m4 input-field">
-                        <label for="nombre">Nombre</label>
-                        <input type="text" id="nombre" name="nombre" value="<?php echo $infInfBoleta[1]; ?>" data-validetta="required">
+                        <label for="contrasenaNva">Contrase&ntilde;a nueva</label>
+                        <input type="password" id="contrasenaNva" name="contrasenaNva" data-validetta="required,minLength[6],equalTo[contrasenaNva2]">
                     </div>
                     <div class="col s12 m4 input-field">
-                        <label for="primerApe">Primer apellido</label>
-                        <input type="text" id="primerApe" name="primerApe" value="<?php echo $infInfBoleta[2]; ?>" data-validetta="required">
+                        <label for="contrasenaNva2">Confirmar contrase&ntilde;a</label>
+                        <input type="password" id="contrasenaNva2" name="contrasenaNva2" data-validetta="required,minLength[6],equalTo[contrasenaNva]">
                     </div>
-                    <div class="col s12 m4 input-field">
-                        <label for="segundoApe">Segundo apellido</label>
-                        <input type="text" id="segundoApe" name="segundoApe" value="<?php echo $infInfBoleta[3]; ?>" data-validetta="required">
-                    </div>
-                    <div class="col s12 m4 input-field">
-                        <label for="correo">Correo</label>
-                        <input type="text" id="correo" name="correo" value="<?php echo $infInfBoleta[4]; ?>" data-validetta="required,email">
-                    </div>
-                    <div class="col s12 m4 input-field">
-                        <label for="fechaNac">Fecha de nacimiento</label>
-                        <input type="text" id="fechaNac" name="fechaNac" class="datepicker" value="<?php echo $infInfBoleta[7]; ?>" readonly data-validetta="required">
-                    </div>
-                    <div class="col s12 m4 input-field">
-                        <input type="submit" class="btn deep-orange accent-2" style="width:100%" value="Editar">
+                    <div class="col s12 input-field">
+                        <input type="submit" class="btn deep-orange accent-2" style="width:100%" value="Cambiar contrase&ntilde;a">
                     </div>
                 </form>
             </div>
         </div>
-        <!--<div class="container Editar">
-            <h1 class="h3 mb-2 text-gray-800">&nbsp;</h1>
-            <h1 class="h3 mb-2 text-gray-800">Configuración de la cuenta</h1>
-            <div class="row">
-              <form class="user" id="formEditAlumno" autocomplete="off">
-                <div class="col s12 m4 input-field">
-                    <label for="boleta">Boleta</label>
-                    <input type="text" id="id_boleta" name="id_boleta" maxLength="10" value="<?php echo $infInfBoleta[0];  ?>" readonly required name="boleta">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" id="f_name" name="f_name" value="<?php echo $infInfBoleta[1]; ?>" required name="f_name">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <label for="primerApe">Primer apellido</label>
-                    <input type="text" id="m_name" name="m_name" value="<?php echo $infInfBoleta[2]; ?>" required name="m_name">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <label for="segundoApe">Segundo apellido</label>
-                    <input type="text" id="l_name" name="l_name" value="<?php echo $infInfBoleta[3]; ?>" required name="l_name">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <label for="correo">Correo</label>
-                    <input type="text" id="email" name="email" value="<?php echo $infInfBoleta[4]; ?>" required name="email">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <label for="correo">Tel&eacute;fono</label>
-                    <input type="text" id="phone" name="phone" value="<?php echo $infInfBoleta[5]; ?>" required name="phone">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <label for="fechaNac">Fecha de nacimiento</label>
-                    <input type="text" class="datepicker" id="b_date" name="b_date" readonly value="<?php echo $infInfBoleta[7]; ?>" required name="b_date">
-                </div>
-                <div class="col s12 m4 input-field">
-                    <a href="./../../pages/alumno/inicio.php" class="btn orange" style="width:100%;">Cancelar</a>
-                </div>
-                <div class="col s12 m4 input-field">
-                    <input type="submit" class="btn blue" style="width:100%;" value="Actualizar" >
-                </div>
-              </form>
-            </div>row
-        </div>container Editar-->
-    </div><!--wrapper-->
- 
+        </div><!--container Editar-->
+    </div><!--wraper-->
     <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">

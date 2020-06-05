@@ -11,7 +11,7 @@
     $respAX = [];
     if($infUpdAlumno == 1){
         $respAX["val"] = 1;
-        $respAX["msj"] = "<h5>Los datos se actualizaron correctamente. Gracias :)</h5>";
+        $respAX["msj"] = "<h5>Los datos se actualizaron correctamente.</h5>";
     }else{
         $respAX["val"] = 0;
         $respAX["msj"] = "<h5>No se pudo realizar la actualizaci&oacute;n de los datos. Favor de intentarlo nuevamente.</h5>";
