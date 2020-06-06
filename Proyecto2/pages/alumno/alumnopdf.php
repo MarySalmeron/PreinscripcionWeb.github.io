@@ -2,7 +2,7 @@
     session_start();
     if(isset($_SESSION["id_boleta"])){
       include("../../logic_php/student_info.php");
-    }
+    
     include("../../pages/fix/fpdf182/fpdf.php");
 
     setlocale(LC_ALL, "es_MX");
@@ -55,4 +55,7 @@
         $pdf->Cell(107,7,$fila[2],1,1,"L");
     }
     $pdf->Output();
+}else{
+    header("location:./index.php");
+}
 ?>

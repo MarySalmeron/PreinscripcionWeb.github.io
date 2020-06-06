@@ -74,48 +74,33 @@ while($row = mysqli_fetch_array($result)) {
     echo "</tr>";
 }
 echo "</table>";
-mysqli_close($con);
 ?>
 <h1 class="h3 mb-2 text-gray-800">&nbsp;</h1>
 <h1 class="h3 mb-2 text-gray-800">Materias agregadas</h1>
+
 <?
-/*$sql="SELECT nombre FROM subject WHERE id_subject IN(SELECT  ;
-$result = mysqli_query($con,$sql);
-?>
-<!--mysqli_select_db($con,"preinscripcion");
-$sql="SELECT * FROM subject WHERE tipo = '".$q."'";
-$result = mysqli_query($con,$sql);
+//mysqli_select_db($con,"preinscripcion");
+$sqlInfTable="SELECT distinct subject.id_subject, subject.tipo, subject.nombre from subject join student_subject on subject.id_subject=student_subject.subject_id_student JOIN student on student_subject.student_id_boleta=$id_boleta ";
+$resInfTable=mysqli_query($con,$sqlInfTable);;
+//$result = mysqli_query($con,$sql);
 
 echo "<table>
 <tr>
-<th>Nombre</th>
+<th>ID</th>
 <th>Nivel</th>
-<th>Estado</th>
-<th>Agregar</th>
+<th>Nombre</th>
 </tr>";
-while($row = mysqli_fetch_array($result)) {
+while($row=$infInfTable=mysqli_fetch_array($resInfTable)){
     echo "<tr>";
-    echo "<td>" . $row['nombre'] . "</td>";
-    echo "<td>" . $row['tipo'] . "</td>";
-    echo "<td>
-        <form method = 'post' action = 'ejemplo.php'>
-            <div>
-                <input type = 'radio' name = 'preg1' value = 'foo' >Ordinario</input>
-                <input type = 'radio' name = 'preg1' value = 'bar' >Recurse</input>
-            </div>
-        </form>
-    </td>";
-    echo "<td>
-        <a href=''><i class='far fa-plus-square fa-2x'></i></a>
-    </td>";
+    echo "<td>" .$row["ID"] . "</td>";
+    echo "<td>" .$row[1] . "</td>";
+    echo "<td>" .$row[2] . "</td>";
     echo "</tr>";
 }
+
 echo "</table>";
-mysqli_close($con);*/
-?>-->
-
-
-
+mysqli_close($con);
+?>
 </body>
 </html>
 <?php

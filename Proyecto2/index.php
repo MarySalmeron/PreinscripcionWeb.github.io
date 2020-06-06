@@ -64,7 +64,7 @@
                   <div class="text-center">
                   <a class="small" href="./pages/inicio/forgot-password.html">¿Olvidaste tu contraseña?</a>
                     <br>
-                    <a class="small" href="loginAdmin.php">Entrar como administrador</a>
+                    <a class="small" href="./pages/admin/loginAdmin.php">Entrar como administrador</a>
                   </div>
                 </div>
               </div>

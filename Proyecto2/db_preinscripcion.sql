@@ -1,4 +1,5 @@
-CREATE DATABASE IF NOT EXISTS preinscripcion;
+﻿
+ CREATE DATABASE IF NOT EXISTS preinscripcion;
 USE preinscripcion;
 
 CREATE TABLE student (
@@ -8,7 +9,7 @@ CREATE TABLE student (
   l_name nvarchar(20),
   email NVARCHAR(30),
   phone INT(30),
-  gender varchar(10),
+  gender varchar(2),
   b_date date,
   contrasena NVARCHAR(30),
   PRIMARY KEY (id_boleta)
@@ -18,7 +19,7 @@ CREATE TABLE subject (
   id_subject INT(5) NOT NULL,
   tipo INT,
   nombre VARCHAR(45),
-  estado VARCHAR(12),
+  estado INT,
   PRIMARY KEY (id_subject)
   );
   
@@ -26,10 +27,10 @@ CREATE TABLE student_subject (
   student_id_boleta INT(10) NOT NULL,
   subject_id_student INT(5) NOT NULL,
   PRIMARY KEY (student_id_boleta, subject_id_student),
-  constraint studentifk foreign key(student_id_boleta) references student(id_boleta) on delete cascade on update cascade,
-  constraint subjectifk foreign key(subject_id_student) references subject(id_subject) on delete cascade on update cascade
+  constraint studentfk foreign key(student_id_boleta) references student(id_boleta) on delete cascade on update cascade,
+  constraint subjectfk foreign key(subject_id_student) references subject(id_subject) on delete cascade on update cascade
   ); 
-  
+
 CREATE TABLE admin(
   user varchar(10) NOT NULL,
   num_user INT(10) NOT NULL,
@@ -38,13 +39,12 @@ CREATE TABLE admin(
   );
 
 CREATE TABLE admin_student(
-  admin_id INT(10) NOT NULL,
+  admin_id varchar(10) NOT NULL,
   student_id_boleta INT(10) NOT NULL,
   PRIMARY KEY (student_id_boleta, admin_id),
   constraint fkstudent foreign key(student_id_boleta) references student(id_boleta) on delete cascade on update cascade,
   constraint adminfk foreign key(admin_id) references admin(num_user) on delete cascade on update cascade
   );
-
 insert into subject values (1, 1, 'Ecuaciones diferenciales');
 insert into subject values (2, 1, 'Analisis vectorial');
 insert into subject values (3, 1, 'Calculo');
@@ -89,9 +89,10 @@ insert into subject values (38, 4, 'Administracione de servicios en red');
 insert into subject values (39, 4, 'Gestion empresarial');
 insert into subject values (40, 4, 'Liderazgo');
 insert into subject values (41, 4, 'Trabajo Terminal I');
-insert into subject values (42, 4, 'Trabajo Terminal II');
+insert into subject values (42, 3, 'Trabajo Terminal II');
+ 
+insert into student values (2020000000, 'Juan', 'Perez', 'Perez', 'jpp@gmail.com', 554556578, 'mas', '2000-00-00','juan$');
+insert into student_subject values (2020000000, 1);
 
-insert into student values (2020000000, 'Alumno', 'A_alumno', 'A_alumno', 'alumno.ipn@gmail.com', 55000000, 'Masculino', '1999-04-16','123456');
 insert into admin values("admin",2020495842, "tweb2020");
-insert into student_subject values (2020000000, 1); 
-show tables; 
+insert into admin_student values(

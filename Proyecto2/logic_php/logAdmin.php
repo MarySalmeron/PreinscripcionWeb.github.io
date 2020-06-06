@@ -2,10 +2,10 @@
     //error_reporting(E_ALL ^ E_NOTICE);
     include ("../pages/fix/connection.php");
     session_start();
-    $id_boleta=$_POST['id_boleta'];
+    $user=$_POST['user'];
     $pass=$_POST['pass'];
-    $pass=md5($pass);
-    $q= "SELECT COUNT(*) as contar from student where id_boleta='$id_boleta' and contrasena='$pass' ";
+    //$pass=md5($pass);
+    //$q= "SELECT COUNT(*) as contar from student where id_boleta='$id_boleta' and contrasena='$pass' ";
     $consulta=mysqli_query($connection, $q);
     if($consulta){
         echo($q);

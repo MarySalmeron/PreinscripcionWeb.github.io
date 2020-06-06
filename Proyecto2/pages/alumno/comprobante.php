@@ -42,7 +42,7 @@
         </div>
         <div class="sidebar-brand-text mx-3"><?php echo $infInfBoleta[1]; ?></div>
       </a>
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./../../pages/alumno/inicio.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./../../pages/alumno/inicio.php">
         <div class="sidebar-brand-text mx-3"><?php echo $infInfBoleta[0]; ?></div>
       </a>
 
