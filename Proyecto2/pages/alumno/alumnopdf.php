@@ -22,7 +22,15 @@
 
 
 
-    $sqlInfTable="SELECT distinct subject.id_subject, subject.tipo, subject.nombre from subject join student_subject on subject.id_subject=student_subject.subject_id_student JOIN student on student_subject.student_id_boleta=$boleta ";
+    $sqlInfTable="SELECT distinct 
+                        subject.id_subject, 
+                        subject.tipo, 
+                        subject.nombre, 
+                        case student_subject.estado
+                            when 0 then 'ORD'
+                            else 'REC'
+                        end
+                        from subject join student_subject on subject.id_subject=student_subject.subject_id_student JOIN student on student_subject.student_id_boleta=$boleta ";
     $resInfTable=mysqli_query($connection,$sqlInfTable);
 
 
@@ -47,12 +55,14 @@
     $pdf->Cell(24,6,"",0,0);
     $pdf->Cell(15,6,"ID",1,0,"C");
     $pdf->Cell(15,6,"Nivel",1,0,"C");
-    $pdf->Cell(107,6,"Nombre",1,1,"C");
+    $pdf->Cell(107,6,"Nombre",1,0,"C");
+    $pdf->Cell(17,6,"Estado",1,1,"C");
     while($fila=$infInfTable=mysqli_fetch_array($resInfTable)){
         $pdf->Cell(24,6,"",0,0);
         $pdf->Cell(15,7,$fila[0],1,0,"L");
         $pdf->Cell(15,7,$fila[1],1,0,"L");
-        $pdf->Cell(107,7,$fila[2],1,1,"L");
+        $pdf->Cell(107,7,$fila[2],1,0,"L");
+        $pdf->Cell(17,7,$fila[3],1,1,"L");
     }
     $pdf->Output();
 }else{
