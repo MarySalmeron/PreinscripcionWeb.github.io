@@ -116,18 +116,6 @@
             </div>
 
             <!-- Border Bottom Utilities -->
-            <div class="col-lg-6">
-
-            <div class="card mb-4 py-3 border-left-primary">
-                <div class="card-body">
-                Enviar correo electrónico
-                <a class="nav-link" href="./../../pages/alumno/comprobante.php">
-                    <i class="fas fa-envelope fa-7x"></i>
-                </a>
-                </div>
-              </div>
-
-            </div>
 
           </div>
 

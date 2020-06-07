@@ -13,7 +13,6 @@
                 <i class='fas fa-pen editarAlmn' data-editar='$filas[0]'></i>&nbsp;
                 <i class='fas fa-times eliminarAlmn' data-eliminar='$filas[0]'></i>&nbsp;
                 <i class='fas fa-file-pdf pdfAlmn' data-pdf='$filas[0]'></i>&nbsp;
-                <i class='fas fa-envelope correoAlmn' data-correo='$filas[0]'></i>&nbsp;
             </td>
         </tr>";
     }

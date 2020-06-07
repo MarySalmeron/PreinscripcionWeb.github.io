@@ -1,7 +1,7 @@
 <?php
     session_start();
     if(isset($_SESSION["admin"])){
-      include("./administracion_BD.php");
+      include("./materias_BD.php");
     
 ?>
 
@@ -29,7 +29,7 @@
   <script type="text/javascript" src="./../../js/plugins/validetta/validetta.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-  <script src="./../../js/administracion.js"></script>
+  <script src="./../../js/administracionMaterias.js"></script>
   <title>Administrador</title>
 
   <!-- Custom fonts for this template-->
@@ -91,18 +91,18 @@
       <div class="col-xl-12 col-lg-9">
         <div class="card shadow mb-4">
           <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Alumnos registrados</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Materias</h6>
           </div>
           <div class="card-body">
             <div class="table-responsive">
               <table class="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Boleta</th><th>Nombre</th><th>Opciones</th>
+                    <th>Id</th><th>Nivel</th><th>Nombre</th><th>Opciones</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <?php echo $filasAlumnos; ?>
+                  <?php echo $filasMaterias; ?>
                 </tbody>
               </table>
             </div>

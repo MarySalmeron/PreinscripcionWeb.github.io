@@ -13,9 +13,10 @@
     if(isset($_POST["id_subject"],$_POST["estado"]) and $_POST["id_subject"]!="" and $_POST["estado"]!=""){
         $id_subject=$_POST["id_subject"];
         $estado=$_POST["estado"];
-
+        /*if($estado==0) $estado="Ordinario";
+        else $estado="Recurse";*/
         
-        $sql="INSERT into student_subject values ($boleta, $id_subject,$estado)";
+        $sql="INSERT into student_subject values ($boleta, $id_subject, $estado)";
         $result = mysqli_query($con,$sql);
         if(!$result){
             echo"<p> No se pudo agregar </p>";
@@ -27,7 +28,7 @@
         $sql="DELETE FROM student_subject WHERE student_subject.student_id_boleta = $boleta AND student_subject.subject_id_student = $id";
         $result=mysqli_query($con,$sql);
         if(!$result){
-            echo"<p> No se pudo agregar </p>";
+            echo"<p> No se pudo eliminar </p>";
         }
     }
     header("location:./materiasAlumno.php");

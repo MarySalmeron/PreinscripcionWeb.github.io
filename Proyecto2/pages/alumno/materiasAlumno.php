@@ -15,10 +15,7 @@ if (isset($_SESSION["id_boleta"])) {
       subject.id_subject as id, 
       subject.nombre, 
       subject.tipo, 
-      case student_subject.estado
-          when 0 then 'ORD'
-          else 'REC'
-      end as estado
+      student_subject.estado
       from subject join student_subject on subject.id_subject=student_subject.subject_id_student JOIN student on student_subject.student_id_boleta=$boleta ";
     $result1 = mysqli_query($con, $sql1);
 ?>

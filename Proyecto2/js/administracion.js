@@ -53,8 +53,4 @@ $(document).ready(function(){
         window.location.href = "./administracionPDF.php?boleta="+boleta;
     });
 
-    $("main").on("click",".correoAlmn",function(){
-        boleta = $(this).attr("data-correo");
-        window.location.href = "./administracionCorreo.php?boleta="+boleta;
-    });
 });

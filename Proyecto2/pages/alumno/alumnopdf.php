@@ -61,7 +61,7 @@
         $pdf->Cell(24,6,"",0,0);
         $pdf->Cell(15,7,$fila[0],1,0,"L");
         $pdf->Cell(15,7,$fila[1],1,0,"L");
-        $pdf->Cell(107,7,$fila[2],1,0,"L");
+        $pdf->Cell(107,7,utf8_decode($fila[2]),1,0,"L");
         $pdf->Cell(17,7,$fila[3],1,1,"L");
     }
     $pdf->Output();
