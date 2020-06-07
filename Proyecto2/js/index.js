@@ -26,7 +26,7 @@ $(document).ready(function(){
                             }
                             if(AX.val == 1){
                                 //Significa que los datos fueron correctos, entonces indicarlo al usuario y en cuanto cierre el 'confirm' redireccionar automaticamete a la página exclusiva del alumno en cuestión.
-                                location.replace("./pages/alumno/alumno.php");
+                                location.replace("./pages/alumno/inicio.php");
                             }
                         }
                     });

@@ -5,21 +5,21 @@
     
     session_start();
     //Factorizamos en un archivo todas las credenciales de acceso a nuestra BD
-    include("./../fix/configBD.php");
+    include("./../pages/fix/configBD.php");
     //Este archivo recupera la información que llega a la página por medio de un formulario y genera de manera automática una variable PHP con base en el valor del atributo 'name' de cada componente del formulario.
-    include("./../fix/getPosts.php");
+    include("./../pages/fix/getPosts.php");
 
     //En este arreglo prepararemos la respuesta, en formato JSON, que dará el servidor a la petición AJAX. Aprovecharemos que un arreglo asociativo PHP es un 'primo' de JSON
     $respAX = [];
     //La contraseña en la BD está codificada en MD5, por lo que debemos hacer una conversión de lo que escribió el usuario en el formulario antes de hacer una comparación directa entre estos valores.
     $contrasena = md5($contrasena);
-    $sql = "SELECT * FROM student WHERE id_boleta = '$boleta' AND contrasena = '$contrasena'";
+    $sql = "SELECT * FROM student WHERE id_boleta = '$id_boleta' AND contrasena = '$contrasena'";
     $res = mysqli_query($conexion, $sql);
     //Nuestro modelo, si está bien hecho, debe contener solo un registro con la combinación boleta-contrasena, en caso contrario habrá que reclamar al profesor de BD
     $inf = mysqli_num_rows($res);
     if($inf == 1){
         //Significa que solo un registro, en la BD, contiene los datos proporcionados a través del formulario: es un alumno válido; creamos una 'marca' de que pasamos por el login y nos autentificamos, entonces aquí el uso de una SESION
-        $_SESSION["id_boleta"] = $boleta;
+        $_SESSION["id_boleta"] = $id_boleta;
         $respAX["val"] = 1;
         $respAX["msj"] = "<h5>Bienvenido!!! :)</h5>";
     }else{

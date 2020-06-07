@@ -8,16 +8,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script src="./js/jquery-3.4.1.min.js"></script>
+  <script src="./js/jquery-1.8.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.0/jquery.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <link href="./js/plugins/validetta/validetta.min.css" rel="stylesheet">
+  <link href="./js/plugins/confirm/jquery-confirm.min.css" rel="stylesheet">
+  <link href="./css/general.css" rel="stylesheet">
+  <link href="./js/plugins/validetta/validetta.css" rel="stylesheet" type="text/css" media="screen" >
+  <script src="./js/plugins/validetta/validetta.min.js"></script>
+  <script src="./js/plugins/validetta/validettaLang-es-ES.js"></script>
+  <script src=".//js/plugins/confirm/jquery-confirm.min.js"></script>
+  <script type="text/javascript" src="./js/plugins/validetta/validetta.js"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  
 
   <title>Inicio</title>
 
   <!-- Custom fonts for this template-->
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="./vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
   <!-- Custom styles for this template-->
-  <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+  <link href="./css/sb-admin-2.min.css" rel="stylesheet">
+  <script src="./js/index.js"></script>
 </head>
 
 <body class="bg-gradient-primary">
@@ -40,25 +55,29 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Preinscripción ESCOM</h1>
                   </div>
-                  <form action="logic_php/log.php" method="POST" class="user">
-                    <div class="form-group">
-                      
-                      <input type="text" class="form-control form-control-user" placeholder="Boleta" id="id_boleta" name="id_boleta" maxlength="10" minlength="8" aria-describedby="emailHelp" placeholder="Número de boleta" required="id_boleta" > <!-- -->
-                    </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="pass" name="pass" placeholder="Contraseña" required="pass" minlength="5">
-                    </div>
-                    <div class="form-group">
-                      <div class="custom-control custom-checkbox small">
-                        <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Recordarme</label>
+                  <form id="formIndex" autocomplete="off">
+                  <div class="form-group">
+                      <!--<div class="form-control form-control-user">-->
+                        <i class="fas fa-user prefix blue-text"></i>
+                        <label for="boleta">Boleta</label>
+                        <input type="text" id="id_boleta" name="id_boleta" maxlength="10" data-validetta="required,number,minLength[8],maxLength[10]">
+                      <!--</div>-->
+                      <!--<div class="form-control form-control-user">-->
+                        <i class="fas fa-key prefix blue-text"></i>
+                        <label for="contrasena">Contrase&ntilde;a</label>
+                        <input type="password" id="contrasena" name="contrasena" data-validetta="required,minLength[6]">
+                      <!--</div>-->
+                      <div class="col s12 input-field">
+                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Entrar" style="width: 100%;">
                       </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary btn-user btn-block" id="access" value="Entrar">
-                    <hr>
-                    <a href="pages/registro/registro.php" class="btn btn-google btn-user btn-block" > 
-                      Registrar
-                    </a>
+                      <br>
+                      <br>
+                      <br>
+                      <br>
+                      <a href="pages/registro/registro.php" class="btn btn-google btn-user btn-block" > 
+                        Registrar
+                      </a>
+                      </div>
                   </form>
                   <hr>
                   <div class="text-center">
@@ -79,15 +98,18 @@
   </div>
 
   <!-- Bootstrap core JavaScript-->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="./vendor/jquery/jquery.min.js"></script>
+  <script src="./vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <!-- Core plugin JavaScript-->
-  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="./vendor/jquery-easing/jquery.easing.min.js"></script>
 
   <!-- Custom scripts for all pages-->
-  <script src="js/sb-admin-2.min.js"></script>
-
+  <script src="./js/sb-admin-2.min.js"></script>
+  <script>
+    var $x = jQuery.noConflict();
+    
+  </script>
 </body>
 
 </html>
