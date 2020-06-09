@@ -22,7 +22,6 @@
 <script src="./../../js/plugins/validetta/validetta.min.js"></script>
 <script src="./../../js/plugins/validetta/validettaLang-es-ES.js"></script>
 <script src="./../../js/plugins/confirm/jquery-confirm.min.js"></script>
-<script src="./../../js/administracion.js"></script>
 </head>
 <body>
     <header>

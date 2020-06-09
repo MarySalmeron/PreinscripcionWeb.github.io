@@ -1,8 +1,8 @@
 <?php
     session_start();
     if(isset($_SESSION["admin"])){
-      include("./administracion_BD.php");
-    
+      include("./../fix/configBD.php");
+      include("./administracionReporte_BD.php");    
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +29,6 @@
   <script type="text/javascript" src="./../../js/plugins/validetta/validetta.js"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-  <script src="./../../js/administracion.js"></script>
   <title>Administrador</title>
 
   <!-- Custom fonts for this template-->
@@ -38,6 +37,7 @@
 
   <!-- Custom styles for this template-->
   <link href="./../../css/sb-admin-2.min.css" rel="stylesheet">
+
 </head>
 
 <body id="page-top">
@@ -71,11 +71,11 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="./../../pages/admin/materiasAdmin.php">
+        <a class="nav-link" href="./reporteMaterias.php">
           <i class="fas fa-book"></i>
           <span>Materias</span></a>
       </li>
-    
+      
       <li class="nav-item">
         <a class="nav-link" href="./../../pages/admin/reporteMaterias.php">
            <i class="fas fa-chart-bar"></i>
@@ -93,29 +93,57 @@
 
     <!-- Content Wrapper -->
     <main>
-      <!--<div class="row">-->
-      <div class="col-xl-12 col-lg-9">
-        <div class="card shadow mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Alumnos registrados</h6>
-          </div>
-          <div class="card-body">
-            <div class="table-responsive">
-              <table class="table table-bordered">
-                <thead>
-                  <tr>
-                    <th>Boleta</th><th>Nombre</th><th>Opciones</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <?php echo $filasAlumnos; ?>
-                </tbody>
-              </table>
-            </div>
-          </div>
+     
+    <div class="container-fluid">
+
+<!-- Page Heading -->
+<h1 class="h3 mb-2 text-gray-800">Reporte de unidades de aprendizaje</h1>
+<p class="mb-4">Intenciones por unidad de aprendizaje</p>
+
+<!-- Content Row -->
+<div class="row">
+
+  <div class="col-xl-8 col-lg-7">
+
+    <!-- Area Chart -->
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Total</h6>
+      </div>
+      <div class="card-body">
+        <div class="col s12">
+            <div id="materiastotal"></div>
         </div>
       </div>
-    <!--</div>-->
+    </div>
+
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Primera vez</h6>
+      </div>
+      <div class="card-body">
+        <div class="col s12">
+            <div id="materiasprimera"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow mb-4">
+      <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Recursamiento</h6>
+      </div>
+      <div class="card-body">
+        <div class="col s12">
+            <div id="materiasrecurse"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<!-- /.container-fluid -->
+
     
       <!-- End of Main Content -->
       
@@ -152,12 +180,35 @@
 
   <!-- Page level plugins -->
     <script src="./../../vendor/chart.js/Chart.min.js"></script>
-
   <script>
     var $x = jQuery.noConflict();
     
   </script>
 
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="./../../js/administracionReporte.js"></script>
+  
+  <script type="text/javascript">
+    function crearGrafica(json){
+    var parsed = JSON.parse(json);
+    var arr= [];
+    for (var x in parsed){
+        arr.push(parsed[x]);
+    }
+    return arr; 
+  }
+</script>
+  <script type="text/javascript">
+  datosX=crearGrafica('<?php echo $datosX ?>');
+    datosY=crearGrafica('<?php echo $datosY ?>');
+    var total={
+        x: datosX,
+        y: datosY,
+        type:'scatter'
+    };
+    var data = [total];
+    Plotly.newPlot("materiastotal",data);
+</script>
 
 </body>
 </html>
@@ -167,4 +218,3 @@
         header("location:./../../index.php");
     }
 ?>
-
