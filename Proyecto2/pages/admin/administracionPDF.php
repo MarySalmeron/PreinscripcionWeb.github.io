@@ -35,7 +35,8 @@
         $infAlumno = mysqli_fetch_row($resAlumno);
         $cumple = strftime("%e de %B de %Y", strtotime($infAlumno[7]));
         
-        $sqlInfTable="SELECT distinct subject.id_subject, subject.tipo, subject.nombre  from subject join student_subject on subject.id_subject=student_subject.subject_id_student JOIN student on student_subject.student_id_boleta=$boleta ";
+        $sqlInfTable="SELECT distinct subject.id_subject, subject.tipo, student_subject.estado, subject.nombre  from subject, student_subject, student where subject.id_subject=student_subject.subject_id_student and student_subject.student_id_boleta=$boleta";
+        //$sqlInfTable="SELECT distinct student.id_boleta, student_subject.estado, student.f_name, student.m_name, student.l_name from student, student_subject where student_subject.subject_id_student=$materia and subject.id_subject=student_subject.subject_id_student " ;
         $resInfTable=mysqli_query($conexion,$sqlInfTable);
 
         // Creación del objeto de la clase heredada
@@ -60,16 +61,18 @@
         $pdf->Cell(16,6,"",0,0);
         $pdf->Cell(0,7,"Carrera: Ingenieria en Sistemas Computacionales",0,1,"L");
         $pdf->Ln(20);
-        $pdf->Cell(24,6,"",0,0);
+        $pdf->Cell(14,6,"",0,0);
         $pdf->Cell(15,6,"ID",1,0,"C");
         $pdf->Cell(15,6,"Nivel",1,0,"C");
-        $pdf->Cell(107,6,"Nombre",1,1,"C");
+        $pdf->Cell(24,6,"Estado",1,0,"C");
+        $pdf->Cell(107,6,"Materia",1,1,"C");
         
         while($fila=$infInfTable=mysqli_fetch_array($resInfTable)){
-            $pdf->Cell(24,6,"",0,0);
+            $pdf->Cell(14,6,"",0,0);
             $pdf->Cell(15,7,$fila[0],1,0,"L");
             $pdf->Cell(15,7,$fila[1],1,0,"L");
-            $pdf->Cell(107,7,utf8_decode($fila[2]),1,1,"L");
+            $pdf->Cell(24,7,$fila[2],1,0,"L");
+            $pdf->Cell(107,7,utf8_decode($fila[3]),1,1,"L");
 
         }
         $pdf->Output();

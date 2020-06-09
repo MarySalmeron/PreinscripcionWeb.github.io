@@ -99,10 +99,10 @@
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="contrasena" name="contrasena" placeholder="Password" required="contrasena" equualTo="contrasena2">
+                    <input type="password" class="form-control form-control-user" id="contrasena" name="contrasena" placeholder="Password" data-validetta="required,minLength[6],equalTo[contrasena2]">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="contrasena2" name="contrasena2" placeholder="Repeat Password"  required="contrasena2" equualTo="contrasena">
+                    <input type="password" class="form-control form-control-user" id="contrasena2" name="contrasena2" placeholder="Repeat Password"  data-validetta="required,minLength[6],equalTo[contrasena]">
                   </div>
                 </div>
                 <input type="submit" class="btn blue" style="width:100%;" value="Registrar">

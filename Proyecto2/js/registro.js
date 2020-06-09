@@ -30,11 +30,9 @@ $(document).ready(function(){
                 data:$("#formRegistro").serialize(),
                 cache:false,
                 success:function(resp){
-                    console.log(resp);
-                    M.toast({html:resp});
                     var AX = JSON.parse(resp);
                     var titulo = "<h2>Registro</h2>";
-                    M.toast({html:AX.msj,classes:'rounded'});
+                    //M.toast({html:AX.msj,classes:'rounded'});
                     $.alert({
                         title:titulo,
                         content:AX.msj,
@@ -42,10 +40,10 @@ $(document).ready(function(){
                         theme:"supervan",
                         onDestroy:function(){
                             if(AX.cod == 0 || AX.cod == 2){
-                                //location.reload();
+                                location.reload();
                             }
                             if(AX.cod == 1){
-                                //location.replace("./../../index.php");
+                                location.replace("./../../index.php");
                             }
                         }
                     });

@@ -40,7 +40,7 @@
 
         // Creación del objeto de la clase heredada
         $pdf = new PDF();
-        $pdf->AddPage("L");
+        $pdf->AddPage();
         $pdf->SetFont('Arial','',10);
         $pdf->Ln(10);
         $pdf->Cell(0,7,"ESCOM-IPN, ".strftime("%A %d de %B de %Y"),0,1,"R");
@@ -58,13 +58,13 @@
         $pdf->Cell(16,6,"",0,0);
         $pdf->Cell(0,7,"Carrera: Ingenieria en Sistemas Computacionales",0,1,"L");
         $pdf->Ln(20);
-        $pdf->Cell(24,6,"",0,0);
+        $pdf->Cell(10,6,"",0,0);
         $pdf->Cell(30,6,"Boleta",1,0,"C");
         $pdf->Cell(30,6,"Estado",1,0,"C");
         $pdf->Cell(107,6,"Nombre",1,1,"C");
         //$pdf->Cell(20,6,"Estado",1,1,"C");
         while($fila=$infInfTable=mysqli_fetch_array($resInfTable)){
-            $pdf->Cell(24,6,"",0,0);
+            $pdf->Cell(10,6,"",0,0);
             $pdf->Cell(30,7,$fila[0],1,0,"L");
             $pdf->Cell(30,7,$fila[1],1,0,"L");
             $pdf->Cell(107,7,utf8_decode("$fila[2] $fila[3] $fila[4]"),1,1,"L");
