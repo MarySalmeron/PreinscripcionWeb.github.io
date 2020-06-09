@@ -77,6 +77,12 @@
       </li>
     
       <li class="nav-item">
+        <a class="nav-link" href="./../../pages/admin/reporteMaterias.php">
+           <i class="fas fa-chart-bar"></i>
+          <span>Reporte materias</span></a>
+      </li>
+
+      <li class="nav-item">
         <a class="nav-link" href="./../../pages/fix/cerrar_sesion.php?nombreSesion=user">
         <i class="fas fa-sign-out-alt"></i>
         <span>Salir</span></a>
