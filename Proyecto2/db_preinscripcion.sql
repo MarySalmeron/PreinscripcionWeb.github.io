@@ -1,17 +1,16 @@
-﻿
- CREATE DATABASE IF NOT EXISTS preinscripcion;
+﻿CREATE DATABASE IF NOT EXISTS preinscripcion;
 USE preinscripcion;
 
 CREATE TABLE student (
   id_boleta INT(10) NOT NULL,
-  f_name nvarchar(25),
-  m_name nvarchar(20),
-  l_name nvarchar(20),
-  email NVARCHAR(30),
+  f_name varchar(25),
+  m_name varchar(20),
+  l_name varchar(20),
+  email VARCHAR(30),
   phone INT(30),
   gender varchar(2),
   b_date date,
-  contrasena NVARCHAR(30),
+  contrasena VARCHAR(30),
   finalized VARCHAR(12) DEFAULT NULL,
   PRIMARY KEY (id_boleta)
   );
