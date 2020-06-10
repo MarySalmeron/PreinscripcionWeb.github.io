@@ -7,7 +7,6 @@
         $materiaX[]=$ver[0];
         $estudiantesY[]=$ver[1];
     }
-    //echo $materiaX[0];
 
     $sqlRecurse = "SELECT nombre, COUNT(*) as estudiantes FROM student_subject, subject where student_subject.subject_id_student=subject.id_subject and estado='Recurse' GROUP BY subject_id_student";
     $resRecurse = mysqli_query($conexion, $sqlRecurse);
@@ -17,8 +16,6 @@
         $materia1X[]=$ver1[0];
         $estudiantes1Y[]=$ver1[1];
     }
-    //echo $materia1X[0];
-    //echo $estudiantes1Y[0];
 
     $sqlOrdinario = "SELECT nombre, COUNT(*) as estudiantes FROM student_subject, subject where student_subject.subject_id_student=subject.id_subject and estado='Ordinario' GROUP BY subject_id_student"; 
     $resOrdinario = mysqli_query($conexion, $sqlOrdinario);
