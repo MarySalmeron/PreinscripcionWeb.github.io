@@ -53,13 +53,13 @@
     $pdf->Cell(15,6,"ID",1,0,"C");
     $pdf->Cell(15,6,"Nivel",1,0,"C");
     $pdf->Cell(107,6,"Nombre",1,0,"C");
-    $pdf->Cell(17,6,"Estado",1,1,"C");
+    $pdf->Cell(24,6,"Estado",1,1,"C");
     while($fila=$infInfTable=mysqli_fetch_array($resInfTable)){
         $pdf->Cell(24,6,"",0,0);
         $pdf->Cell(15,7,$fila[0],1,0,"L");
         $pdf->Cell(15,7,$fila[1],1,0,"L");
         $pdf->Cell(107,7,utf8_decode($fila[2]),1,0,"L");
-        $pdf->Cell(17,7,$fila[3],1,1,"L");
+        $pdf->Cell(24,7,$fila[3],1,1,"L");
     }
     $pdf->Output();
 }else{

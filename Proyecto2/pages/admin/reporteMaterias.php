@@ -85,7 +85,7 @@
       </div>
 
       <li class="nav-item">
-        <a class="nav-link" href="./reporteMaterias.php">
+        <a class="nav-link" href="./../../pages/admin/materiasAdmin.php">
           <i class="fas fa-book"></i>
           <span>Materias</span></a>
       </li>
