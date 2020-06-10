@@ -71,8 +71,8 @@ if (isset($_SESSION["id_boleta"])) {
       echo "<span class='td'>" . $row['nombre'] . "</span>";
       echo "<span class='td'>" . $row['tipo'] . "</span>";
       echo "<span class='td'>
-                <input type = 'radio' name = 'estado' value = 'Ordinario' >Ordinario</input>
-                <input type = 'radio' name = 'estado' value = 'Recurse' >Recurse</input> 
+                <input type = 'radio' name = 'estado' value = '0' >Ordinario</input>
+                <input type = 'radio' name = 'estado' value = '1' >Recurse</input> 
         </span>";
       echo "<span class='td'>
             <input type='submit' value='Añadir' class='btn btn-success btn-xs active'  ".$s.">
