@@ -75,7 +75,7 @@ if (isset($_SESSION["id_boleta"])) {
                 <input type = 'radio' name = 'estado' value = 1 >Recurse</input> 
         </span>";
       echo "<span class='td'>
-            <input type='submit' value='Añadir' class='btn btn-success btn-xs active'>
+            <input type='submit' value='Añadir' class='btn btn-success btn-xs active'  ".$s.">
         </span>";
       echo "</form>";
     }

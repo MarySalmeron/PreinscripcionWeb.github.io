@@ -2,7 +2,16 @@
     session_start();
     if(isset($_SESSION["id_boleta"])){
       include("../../logic_php/student_info.php");
-    
+    if($infInfBoleta[9]==0){
+      echo"
+      <style>
+        #disabled {
+        pointer-events: none;
+        cursor: default;
+        color:grey;
+        }
+      </style>";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -107,7 +116,7 @@
               <div class="card mb-4 py-3 border-left-primary">
                 <div class="card-body">
                 Generar PDF
-                <a class="nav-link" href="./../../pages/alumno/alumnopdf.php">
+                <a id="disabled" class="nav-link" href="./../../pages/alumno/alumnopdf.php">
                     <i class="fas fa-file-pdf fa-7x"></i>
                 </a>
                 </div>

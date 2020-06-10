@@ -12,6 +12,7 @@ CREATE TABLE student (
   gender varchar(2),
   b_date date,
   contrasena NVARCHAR(30),
+  finalized VARCHAR(12) DEFAULT NULL,
   PRIMARY KEY (id_boleta)
   );
 
@@ -19,13 +20,13 @@ CREATE TABLE subject (
   id_subject INT(5) NOT NULL,
   tipo INT,
   nombre VARCHAR(45),
-  estado INT,
   PRIMARY KEY (id_subject)
   );
   
 CREATE TABLE student_subject (
   student_id_boleta INT(10) NOT NULL,
   subject_id_student INT(5) NOT NULL,
+  estado VARCHAR(12),
   PRIMARY KEY (student_id_boleta, subject_id_student),
   constraint studentfk foreign key(student_id_boleta) references student(id_boleta) on delete cascade on update cascade,
   constraint subjectfk foreign key(subject_id_student) references subject(id_subject) on delete cascade on update cascade
@@ -39,7 +40,7 @@ CREATE TABLE admin(
   );
 
 CREATE TABLE admin_student(
-  admin_id varchar(10) NOT NULL,
+  admin_id INT(10) NOT NULL,
   student_id_boleta INT(10) NOT NULL,
   PRIMARY KEY (student_id_boleta, admin_id),
   constraint fkstudent foreign key(student_id_boleta) references student(id_boleta) on delete cascade on update cascade,
@@ -91,8 +92,7 @@ insert into subject values (40, 4, 'Liderazgo');
 insert into subject values (41, 4, 'Trabajo Terminal I');
 insert into subject values (42, 3, 'Trabajo Terminal II');
  
-insert into student values (2020000000, 'Juan', 'Perez', 'Perez', 'jpp@gmail.com', 554556578, 'mas', '2000-00-00','juan$');
-insert into student_subject values (2020000000, 1);
+insert into student values (2020000000, 'Juan', 'Perez', 'Perez', 'jpp@gmail.com', 554556578, 'mas', '2000-00-00','juan$',0);
+insert into student_subject values (2020000000, 1,'Ordinario');
 
 insert into admin values("admin",2020495842, "tweb2020");
-insert into admin_student values(

@@ -11,7 +11,7 @@
         $respAX["msj"] = "La Boleta ya est&aacute; registrada. Favor de intentarlo nuevamente.";
     }else{
         $contrasena = md5($contrasena);
-        $sqlInsBoleta = "INSERT INTO student (id_boleta,f_name,m_name,l_name,email,phone,gender,b_date,contrasena) VALUES ('$id_boleta','$f_name','$m_name','$l_name','$email','$phone','$gender','$b_date','$contrasena')";
+        $sqlInsBoleta = "INSERT INTO student VALUES ('$id_boleta','$f_name','$m_name','$l_name','$email','$phone','$gender','$b_date','$contrasena',0)";
         $resInsBoleta = mysqli_query($conexion,$sqlInsBoleta);
         $infInsBoleta = mysqli_affected_rows($conexion);
         if($infInsBoleta == 1){

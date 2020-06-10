@@ -26,10 +26,7 @@
                         subject.id_subject, 
                         subject.tipo, 
                         subject.nombre, 
-                        case student_subject.estado
-                            when 0 then 'ORD'
-                            else 'REC'
-                        end
+                        student_subject.estado
                         from subject join student_subject on subject.id_subject=student_subject.subject_id_student JOIN student on student_subject.student_id_boleta=$boleta ";
     $resInfTable=mysqli_query($connection,$sqlInfTable);
 

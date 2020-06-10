@@ -7,7 +7,6 @@ if (isset($_SESSION["id_boleta"])) {
     $con = mysqli_connect('localhost', 'root', '', 'preinscripcion');
     if (!$con) {
         die('Could not connect: ' . mysqli_error($con));
-        echo "<h3> FAIL" . $_POST["estado"] . " </h3>";
     }
 
     mysqli_select_db($con, "preinscripcion");
@@ -170,11 +169,14 @@ if (isset($_SESSION["id_boleta"])) {
                     echo "<span class='td'>" . $row['tipo'] . "</span>";
                     echo "<span class='td'>" . $row['estado'] . "</span>";
                     echo "<span class='td'>
-                            <input type='submit' value='Quitar' class='btn btn-danger btn-xs active'> 
+                            <input type='submit' value='Quitar' class='btn btn-danger btn-xs active' ".$s."> 
                         </span>";
                     echo "</form>";
                 }
                 echo "</div>";
+                echo "<form method = 'post' action='materiasTabla.php'>
+                        <input type='submit' name='confirmar' value='Confirmar' class='btn btn-primary btn-lg btn-block' ".$s.">";
+                echo "</form>";
                 ?>
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">

@@ -31,6 +31,20 @@
             echo"<p> No se pudo eliminar </p>";
         }
     }
+    if(isset($_POST["confirmar"])){
+
+        $sql="SELECT COUNT(subject_id_student) FROM student_subject WHERE student_id_boleta=$boleta";
+        $result=mysqli_query($con,$sql);
+        $row=mysqli_fetch_row($result);
+        $count=$row[0];
+        if(0<$count and $count<8){
+            $sql1="UPDATE student SET finalized=1 WHERE id_boleta=$boleta";
+            $result1=mysqli_query($con,$sql1);
+            if(!$result1){
+                echo"<p> No se pudo copletar la operacion </p>";
+            }
+        }
+    }
     header("location:./materiasAlumno.php");
 
     }else{
