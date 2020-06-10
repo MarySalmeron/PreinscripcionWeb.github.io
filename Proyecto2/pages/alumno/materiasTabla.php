@@ -13,8 +13,10 @@
     if(isset($_POST["id_subject"],$_POST["estado"]) and $_POST["id_subject"]!="" and $_POST["estado"]!=""){
         $id_subject=$_POST["id_subject"];
         $estado=$_POST["estado"];
-        
-        if($estado==0){
+        if(empty($estado)){
+            echo '<script language="javascript">alert("Seleccione una opcion");</script>';
+            #echo "Seleccionar una opción";
+        }else if($estado==0){
             $sql="INSERT into student_subject values ($boleta, $id_subject, 'Ordinario')";
             $result = mysqli_query($con,$sql);
             if(!$result){
@@ -49,8 +51,13 @@
             $sql1="UPDATE student SET finalized=1 WHERE id_boleta=$boleta";
             $result1=mysqli_query($con,$sql1);
             if(!$result1){
-                echo"<p> No se pudo copletar la operacion </p>";
+                echo"<p> No se pudo completar la operacion </p>";
             }
+        }else{
+            echo'<script type="text/javascript">
+            alert("Seleccionar de 1 a 7 unidades académicas");
+            window.location.href="materiasAlumno.php";
+            </script>';
         }
     }
     header("location:./materiasAlumno.php");

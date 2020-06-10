@@ -177,6 +177,7 @@ if (isset($_SESSION["id_boleta"])) {
                 echo "<form method = 'post' action='materiasTabla.php'>
                         <input type='submit' name='confirmar' value='Confirmar' class='btn btn-primary btn-lg btn-block' ".$s.">";
                 echo "</form>";
+               
                 ?>
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
