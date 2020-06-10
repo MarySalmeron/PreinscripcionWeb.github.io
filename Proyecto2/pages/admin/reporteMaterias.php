@@ -38,6 +38,20 @@
   <!-- Custom styles for this template-->
   <link href="./../../css/sb-admin-2.min.css" rel="stylesheet">
 
+  <!-- Graficas -->
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script>
+    //De esta manera podemos 'intercambiar' datos del back-end con el front-end
+    var materiaX = <?php echo json_encode($materiaX); ?>;
+    var estudiantesY = <?php echo json_encode($estudiantesY); ?>;
+    var materia1X = <?php echo json_encode($materia1X); ?>;
+    var estudiantes1Y = <?php echo json_encode($estudiantes1Y); ?>;
+    var materia2X = <?php echo json_encode($materia2X); ?>;
+    var estudiantes2Y = <?php echo json_encode($estudiantes2Y); ?>;
+  </script>
+
+  <script src="./../../js/administracionReporte.js"></script>
+
 </head>
 
 <body id="page-top">
@@ -53,7 +67,7 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3"><?php echo "Bienvenido"; ?></div>
+        <div class="sidebar-brand-text mx-3">Bienvenido</div>
       </a>
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./../../pages/admin/inicio.php">
         <div class="sidebar-brand-text mx-3"><?php echo "Administrador"; ?></div>
@@ -119,7 +133,7 @@
 
     <div class="card shadow mb-4">
       <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Primera vez</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Ordinario</h6>
       </div>
       <div class="card-body">
         <div class="col s12">
@@ -184,31 +198,6 @@
     var $x = jQuery.noConflict();
     
   </script>
-
-  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="./../../js/administracionReporte.js"></script>
-  
-  <script type="text/javascript">
-    function crearGrafica(json){
-    var parsed = JSON.parse(json);
-    var arr= [];
-    for (var x in parsed){
-        arr.push(parsed[x]);
-    }
-    return arr; 
-  }
-</script>
-  <script type="text/javascript">
-  datosX=crearGrafica('<?php echo $datosX ?>');
-    datosY=crearGrafica('<?php echo $datosY ?>');
-    var total={
-        x: datosX,
-        y: datosY,
-        type:'scatter'
-    };
-    var data = [total];
-    Plotly.newPlot("materiastotal",data);
-</script>
 
 </body>
 </html>
